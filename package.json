@@ -1,0 +1,19 @@
+{
+  "name": "rbxtslint",
+  "version": "0.0.0",
+  "description": "Lint rules for Roblox-TS",
+  "main": "tslint-rbxts.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apakovtac/rbxtslint.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}
