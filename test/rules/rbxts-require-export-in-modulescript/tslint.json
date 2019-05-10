@@ -1,0 +1,5 @@
+{
+  "rules": {
+    "rbxts-require-export-in-modulescript": true
+  }
+}
