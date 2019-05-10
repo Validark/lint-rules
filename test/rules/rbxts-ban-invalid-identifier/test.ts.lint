@@ -1,0 +1,29 @@
+class Good {}
+class $Bad { $AlsoBad; $NotGood() {} }
+      ~~~~                      [invalid % ("$Bad")]
+             ~~~~~~~~           [invalid % ("$AlsoBad")]
+                       ~~~~~~~~ [invalid % ("$NotGood")]
+class nil {}
+      ~~~ [keyword % ("nil")]
+
+enum Good {}
+enum $Bad { $AlsoBad, "$NotBad" }
+     ~~~~             [invalid % ("$Bad")]
+            ~~~~~~~~  [invalid % ("$AlsoBad")]
+
+function Good() {}
+function $Bad($AlsoBad, Good) {}
+         ~~~~          [invalid % ("$Bad")]
+              ~~~~~~~~ [invalid % ("$AlsoBad")]
+
+const Good = true;
+const $Bad = false;
+      ~~~~ [invalid % ("$Bad")]
+const undefined = false;
+      ~~~~~~~~~ [reserved % ("undefined")]
+const _exports = false;
+      ~~~~~~~~ [reserved % ("_exports")]
+
+[invalid]: '%s' must be a valid Lua identifier
+[keyword]: '%s' must not be a Lua keyword
+[reserved]: '%s' is a reserved identifier for Roblox-TS
