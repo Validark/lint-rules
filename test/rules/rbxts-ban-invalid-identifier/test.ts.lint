@@ -23,6 +23,11 @@ const undefined = false;
       ~~~~~~~~~ [reserved % ("undefined")]
 const _exports = false;
       ~~~~~~~~ [reserved % ("_exports")]
+let _0, _1, _2, _3;
+    ~~             [reserved % ("_0")]
+        ~~         [reserved % ("_1")]
+            ~~     [reserved % ("_2")]
+                ~~ [reserved % ("_3")]
 
 [invalid]: '%s' must be a valid Lua identifier
 [keyword]: '%s' must not be a Lua keyword

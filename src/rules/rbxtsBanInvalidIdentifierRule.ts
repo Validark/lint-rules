@@ -19,6 +19,7 @@ export class Rule extends Lint.Rules.AbstractRule {
   }
 }
 
+const RBXTS_RESERVED_REGEX = /^_[0-9]+$/;
 const LUA_IDENTIFIER_REGEX = /^[_a-zA-Z][_a-zA-Z0-9]*$/;
 const LUA_KEYWORDS = [
   "and",    "break",  "do",   "else",     "elseif",
@@ -60,7 +61,7 @@ function walk(ctx: Lint.WalkContext<void>) {
       ctx.addFailureAtNode(node, `'${node.text}' must be a valid Lua identifier`);
     } else if (LUA_KEYWORDS.some(keyword => keyword === node.text)) {
       ctx.addFailureAtNode(node, `'${node.text}' must not be a Lua keyword`);
-    } else if (node.text === "_exports" || node.text === "undefined") {
+    } else if (node.text === "_exports" || node.text === "undefined" || RBXTS_RESERVED_REGEX.test(node.text)) {
       ctx.addFailureAtNode(node, `'${node.text}' is a reserved identifier for Roblox-TS`)
     }
   }
