@@ -1,0 +1,14 @@
+{
+    "name": "eslint-plugin-roblox-ts",
+    "version": "0.0.0",
+    "main": "index.js",
+    "devDependencies": {
+        "eslint": "^6.1.0"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "dependencies": {
+        "@typescript-eslint/experimental-utils": "^1.13.0",
+    }
+}
