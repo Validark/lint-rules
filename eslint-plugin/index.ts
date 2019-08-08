@@ -1,10 +1,8 @@
 import { ESLintUtils } from "@typescript-eslint/experimental-utils";
 
-const MESSAGE_ID = "bannedNullMessage";
-
 export = {
 	rules: {
-		"ban-null": ESLintUtils.RuleCreator(name => name)<[], typeof MESSAGE_ID>({
+		"ban-null": ESLintUtils.RuleCreator(name => name)<[], "bannedNullMessage">({
 			name: "ban-null",
 			meta: {
 				type: "problem",
@@ -26,7 +24,7 @@ export = {
 						node.type;
 						context.report({
 							node: node,
-							messageId: MESSAGE_ID,
+							messageId: "bannedNullMessage",
 							fix: fixer => fixer.replaceText(node, "undefined"),
 						});
 					},
@@ -35,7 +33,7 @@ export = {
 						if (node.value === null)
 							context.report({
 								node: node,
-								messageId: MESSAGE_ID,
+								messageId: "bannedNullMessage",
 								fix: fixer => fixer.replaceText(node, "undefined"),
 							});
 					},
